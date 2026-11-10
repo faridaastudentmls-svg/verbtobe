@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Verb to Be: สังเกต ค้นพบกฎ แล้วให้อาหารน้องสัตว์</title>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg1:#74b9ff;--bg2:#a29bfe;--card:#fff;--text:#2d3436;--muted:#636e72;--accent:#6c5ce7;--blue:#0984e3;--ok:#00b894;--bad:#d63031;--chip:#fdcb6e;--chipb:#e17055;--soft:#f1f2f6;--line:#dfe6e9;color-scheme:light;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg1:#1e272e;--bg2:#2d2a4a;--card:#252b33;--text:#f1f2f6;--muted:#b2bec3;--accent:#a29bfe;--blue:#74b9ff;--ok:#55efc4;--bad:#ff7675;--chip:#5b4a1f;--chipb:#e17055;--soft:#303843;--line:#3d4651;color-scheme:dark}}
+:root[data-theme="dark"]{--bg1:#1e272e;--bg2:#2d2a4a;--card:#252b33;--text:#f1f2f6;--muted:#b2bec3;--accent:#a29bfe;--blue:#74b9ff;--ok:#55efc4;--bad:#ff7675;--chip:#5b4a1f;--chipb:#e17055;--soft:#303843;--line:#3d4651;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box;margin:0;padding:0;font-family:'Kanit','Tahoma',sans-serif}
+body{background:linear-gradient(135deg,var(--bg1),var(--bg2));color:var(--text);min-height:100vh;display:flex;justify-content:center;align-items:flex-start;padding:16px}
+.wrap{background:var(--card);width:100%;max-width:700px;border-radius:24px;box-shadow:0 10px 30px rgba(0,0,0,.25);padding:24px;text-align:center}
+h1{font-size:28px;margin-bottom:6px}h2{font-size:22px;margin-bottom:6px}
+.sub{color:var(--muted);margin-bottom:20px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.card{background:var(--soft);border:4px solid var(--line);border-radius:20px;padding:22px 12px;cursor:pointer;transition:.2s;color:var(--text);font-size:15px}
+.card:hover{transform:translateY(-4px);border-color:var(--blue)}
+.card .e{font-size:56px}.card h3{font-size:20px;margin:6px 0 2px}.card small{color:var(--muted)}
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;gap:8px}
+.btn{background:var(--muted);color:#fff;border:0;border-radius:12px;padding:8px 16px;font-size:16px;font-weight:600;cursor:pointer}
+.btn.go{background:var(--ok);color:#06352b;box-shadow:0 4px 0 rgba(0,0,0,.2);padding:12px 24px;font-size:18px;margin-top:14px}
+.steps{display:flex;gap:6px;font-size:14px;font-weight:600}
+.steps span{padding:4px 10px;border-radius:999px;background:var(--soft);color:var(--muted)}
+.steps span.on{background:var(--accent);color:#fff}.steps span.done{background:var(--ok);color:#06352b}
+.hint{color:var(--muted);margin:4px 0 14px;line-height:1.5}
+.tray{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;min-height:56px;margin-bottom:14px}
+.chip{background:var(--chip);border:3px solid var(--chipb);border-radius:14px;padding:8px 14px;font-size:18px;cursor:grab;box-shadow:0 4px 0 var(--chipb);color:var(--text)}
+.chip.sel{outline:4px solid var(--blue)}
+.chip .v{text-decoration:underline;font-weight:700}
+.bins{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(170px,1fr))}
+.bin{background:var(--soft);border:3px dashed var(--line);border-radius:16px;padding:10px;min-height:120px;cursor:pointer}
+.bin.over{border-color:var(--blue)}
+.bin h4{font-size:24px;color:var(--blue);margin-bottom:6px}
+.bin .chip{display:block;margin:6px 0;cursor:default;box-shadow:none;font-size:16px;background:var(--card);border-color:var(--ok)}
+.subj{color:var(--accent);font-weight:700}
+.found .subj{background:rgba(108,92,231,.18);border-radius:6px;padding:0 4px}
+.msg{min-height:28px;margin-top:10px;font-weight:600}
+.row{background:var(--soft);border-radius:16px;padding:12px;margin-bottom:10px;text-align:left}
+.row b{font-size:22px;color:var(--blue)}
+.opts{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.opt{background:var(--card);border:3px solid var(--line);border-radius:12px;padding:8px 12px;font-size:15px;cursor:pointer;color:var(--text)}
+.opt.ok{background:var(--ok);border-color:var(--ok);color:#06352b;font-weight:700}
+.opt.no{border-color:var(--bad);animation:sh .3s}
+.rulebox{background:var(--soft);border-left:6px solid var(--accent);border-radius:12px;padding:12px 14px;text-align:left;margin:10px 0;line-height:1.7}
+.q{background:var(--soft);border-radius:18px;padding:16px;margin-bottom:12px}
+.q .s{font-size:26px;font-weight:700;color:var(--blue)}
+.say{display:inline-block;background:var(--bad);color:#fff;padding:8px 18px;border-radius:18px;font-weight:600;margin-bottom:8px}
+.animal{font-size:80px;transition:transform .2s;display:inline-block;padding:4px 30px;border-radius:30px;border:3px dashed transparent}
+.animal.over{border-color:var(--blue)}
+.food{display:flex;justify-content:center;gap:14px;margin-top:10px;flex-wrap:wrap}
+.food .chip{font-size:22px;font-weight:700;padding:12px 26px}
+.big{font-size:48px;font-weight:700;color:var(--chipb);margin:12px 0}
+@keyframes sh{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.shake{animation:sh .3s}
+@media(max-width:480px){.grid{grid-template-columns:1fr}.wrap{padding:16px}}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <section id="home">
+    <h1>🐾 Verb to Be: ค้นพบกฎด้วยตัวเอง 🐾</h1>
+    <p class="sub">สังเกตตัวอย่าง → สรุปกฎเอง → ฝึกให้อาหารน้องสัตว์</p>
+    <div class="grid">
+      <button class="card" onclick="start('present')"><div class="e">🐦</div><h3>น้องนกกินหนอน</h3><small>Present: am / is / are</small></button>
+      <button class="card" onclick="start('past')"><div class="e">🐉</div><h3>น้องมังกรกินไฟ</h3><small>Past: was / were</small></button>
+    </div>
+  </section>
+  <section id="play" hidden>
+    <div class="top"><button class="btn" onclick="home()">🏠 กลับเมนู</button><div class="steps" id="steps"></div></div>
+    <div id="stage"></div>
+  </section>
+</main>
+<script>
+const M={
+ present:{animal:"🐦",bins:["am","is","are"],
+  ex:[["I","am","happy today."],["He","is","tall."],["She","is","a doctor."],["It","is","a cat."],["You","are","kind."],["We","are","friends."],["They","are","at school."],["The dogs","are","big."]],
+  opts:[{k:"am",t:"I"},{k:"is",t:"he, she, it และประธานเอกพจน์ (1 คน/1 สิ่ง)"},{k:"are",t:"you, we, they และประธานพหูพจน์ (หลายคน/หลายสิ่ง)"}],
+  rule:"I → <b>am</b><br>he, she, it และเอกพจน์ → <b>is</b><br>you, we, they และพหูพจน์ → <b>are</b>",
+  q:[["My sister ___ a nurse.","is","“My sister” แทนด้วย she (เอกพจน์)"],["I ___ ten years old.","am","ประธานคือ I"],["The birds ___ in the tree.","are","“The birds” แทนด้วย they (พหูพจน์)"],["You ___ my best friend.","are","ประธานคือ you"],["Tom and Ann ___ in class.","are","Tom and Ann = 2 คน แทนด้วย they"],["The bag ___ on the table.","is","“The bag” แทนด้วย it (เอกพจน์)"]]},
+ past:{animal:"🐉",bins:["was","were"],
+  ex:[["I","was","tired yesterday."],["He","was","at home last night."],["She","was","a teacher last year."],["It","was","hot this morning."],["You","were","late last week."],["We","were","at the park."],["They","were","in Japan last year."],["The dogs","were","hungry."]],
+  opts:[{k:"was",t:"I, he, she, it และประธานเอกพจน์"},{k:"were",t:"you, we, they และประธานพหูพจน์"},{k:"x",t:"ประธานทุกตัว"}],
+  rule:"I, he, she, it และเอกพจน์ → <b>was</b><br>you, we, they และพหูพจน์ → <b>were</b>",
+  q:[["My dog ___ hungry this morning.","was","“My dog” แทนด้วย it (เอกพจน์)"],["You ___ in Chiang Mai last year.","were","ประธานคือ you"],["I ___ at school yesterday.","was","ประธานคือ I"],["The children ___ happy.","were","“The children” แทนด้วย they (พหูพจน์)"],["She ___ sleepy last night.","was","ประธานคือ she"],["We ___ in the classroom.","were","ประธานคือ we"]]}
+};
+const $=id=>document.getElementById(id);
+let mode,step,drag=null,sel=null;
+const shuf=a=>[...a].sort(()=>Math.random()-.5);
+function bar(){$("steps").innerHTML=["1 สังเกต","2 สรุปกฎ","3 ฝึก"].map((t,i)=>`<span class="${i+1<step?"done":i+1===step?"on":""}">${t}</span>`).join("")}
+function start(m){mode=m;$("home").hidden=true;$("play").hidden=false;step=1;s1()}
+function home(){$("play").hidden=true;$("home").hidden=false}
+function nextBtn(label,fn){const b=document.createElement("button");b.className="btn go";b.textContent=label;b.onclick=fn;$("stage").appendChild(b)}
+
+/* ขั้น 1: สังเกต */
+function s1(){bar();const d=M[mode];
+ $("stage").innerHTML=`<h2>👀 ขั้น 1: สังเกตประโยค</h2><p class="hint">ลากประโยค (หรือแตะประโยค แล้วแตะกล่อง) ไปใส่กล่องตามคำกริยาที่ขีดเส้นใต้ในประโยค</p><div class="tray" id="tray"></div><div class="bins" id="bins"></div><div class="msg" id="msg"></div>`;
+ shuf(d.ex).forEach(e=>{const c=document.createElement("div");c.className="chip";c.draggable=true;c.dataset.v=e[1];
+  c.innerHTML=`<span class="subj">${e[0]}</span> <span class="v">${e[1]}</span> ${e[2]}`;
+  c.ondragstart=()=>{drag=c};c.onclick=()=>{document.querySelectorAll(".chip.sel").forEach(x=>x.classList.remove("sel"));sel=c;c.classList.add("sel")};
+  $("tray").appendChild(c)});
+ d.bins.forEach(v=>{const b=document.createElement("div");b.className="bin";b.dataset.v=v;b.innerHTML=`<h4>${v}</h4>`;
+  b.ondragover=e=>{e.preventDefault();b.classList.add("over")};b.ondragleave=()=>b.classList.remove("over");
+  b.ondrop=e=>{e.preventDefault();b.classList.remove("over");if(drag)put(drag,b)};
+  b.onclick=()=>{if(sel)put(sel,b)};$("bins").appendChild(b)})}
+function put(c,b){const m=$("msg");
+ if(c.dataset.v===b.dataset.v){c.draggable=false;c.classList.remove("sel");c.onclick=null;b.appendChild(c);sel=drag=null;m.textContent="✅ ใช่เลย!";m.style.color="var(--ok)";
+  if(!$("tray").children.length){$("bins").classList.add("found");m.style.color="var(--text)";m.innerHTML="🔍 ลองดู <span class='subj'>ประธาน (สีม่วง)</span> ในแต่ละกล่อง มีอะไรเหมือนกันไหม?";nextBtn("ฉันเห็นรูปแบบแล้ว ➜",()=>{step=2;s2()})}}
+ else{c.classList.add("shake");setTimeout(()=>c.classList.remove("shake"),300);m.textContent="❌ ลองดูคำกริยาที่ขีดเส้นใต้อีกที";m.style.color="var(--bad)"}}
+
+/* ขั้น 2: สรุปกฎ */
+function s2(){bar();const d=M[mode];let left=d.bins.length;
+ $("stage").innerHTML=`<h2>💡 ขั้น 2: สรุปกฎจากที่สังเกต</h2><p class="hint">จากกล่องเมื่อกี้ แต่ละคำกริยาใช้กับประธานแบบไหน? เลือกคำตอบให้ถูก</p><div id="rows"></div>`;
+ d.bins.forEach(v=>{const r=document.createElement("div");r.className="row";r.innerHTML=`<b>${v}</b> ใช้กับประธาน...<div class="opts"></div>`;
+  shuf(d.opts).forEach(o=>{const t=document.createElement("button");t.className="opt";t.textContent=o.t;
+   t.onclick=()=>{if(o.k===v){t.classList.add("ok");r.querySelectorAll(".opt").forEach(x=>x.disabled=true);if(--left===0){const rb=document.createElement("div");rb.className="rulebox";rb.innerHTML="🎉 กฎที่เธอค้นพบ:<br>"+d.rule;$("stage").appendChild(rb);nextBtn("ไปฝึกให้อาหารน้องสัตว์ ➜",()=>{step=3;s3()})}}
+    else{t.classList.add("no");setTimeout(()=>t.classList.remove("no"),400)}};
+   r.querySelector(".opts").appendChild(t)});$("rows").appendChild(r)})}
+
+/* ขั้น 3: ฝึก */
+let qi,score;
+function s3(){qi=0;score=0;bar();q()}
+function q(){const d=M[mode],it=d.q[qi];
+ $("stage").innerHTML=`<div class="top"><span>ข้อ ${qi+1} / ${d.q.length}</span><button class="btn" id="hb">💡 ดูกฎ</button></div>
+ <div class="rulebox" id="hr" hidden>${d.rule}</div>
+ <div class="q"><div class="s">${it[0].replace("___","_____")}</div></div>
+ <div class="say" id="say">หิวจัง! ลากอาหารที่ถูกมาป้อนหน่อย 😋</div><br>
+ <div class="animal" id="an">${d.animal}</div>
+ <p class="hint">👇 ลากอาหารไปที่น้องสัตว์ (หรือแตะอาหารก็ได้)</p><div class="food" id="fd"></div>`;
+ $("hb").onclick=()=>{$("hr").hidden=!$("hr").hidden};
+ const an=$("an");an.ondragover=e=>{e.preventDefault();an.classList.add("over")};an.ondragleave=()=>an.classList.remove("over");
+ an.ondrop=e=>{e.preventDefault();an.classList.remove("over");if(drag)ans(drag.textContent)};
+ shuf(d.bins).forEach(o=>{const c=document.createElement("div");c.className="chip";c.draggable=true;c.textContent=o;
+  c.ondragstart=()=>{drag=c};c.onclick=()=>ans(o);$("fd").appendChild(c)})}
+function ans(o){const d=M[mode],it=d.q[qi];document.querySelectorAll("#fd .chip").forEach(c=>{c.style.pointerEvents="none";c.draggable=false});
+ const s=$("say");
+ if(o===it[1]){score++;s.textContent="✨ อร่อยยย! ถูกต้อง 🥳";s.style.background="var(--ok)";s.style.color="#06352b";$("an").style.transform="scale(1.25)"}
+ else{s.innerHTML=`❌ ยังไม่ใช่นะ ต้องเป็น “${it[1]}” เพราะ ${it[2]}`;s.style.background="var(--bad)"}
+ setTimeout(()=>{if(++qi<d.q.length)q();else done()},o===it[1]?1200:2600)}
+function done(){const n=M[mode].q.length;
+ $("stage").innerHTML=`<div style="font-size:60px">${score===n?"🏆":"👏"}</div><h2>ภารกิจสำเร็จ!</h2><div class="big">${score} / ${n}</div><div class="rulebox">${M[mode].rule}</div>`;
+ const a=document.createElement("button");a.className="btn go";a.textContent="🔄 เล่นโหมดนี้อีกครั้ง";a.onclick=()=>{step=1;s1()};$("stage").appendChild(a);
+ const b=document.createElement("button");b.className="btn go";b.style.marginLeft="8px";b.style.background="var(--blue)";b.textContent="เลือกโหมดอื่น";b.onclick=home;$("stage").appendChild(b)}
+</script>
+</body>
+</html>
